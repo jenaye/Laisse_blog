@@ -1,0 +1,25 @@
+{
+  "name": "blog",
+  "version": "1.0.0",
+  "description": "petit blog avec nodejs",
+  "main": "server.js",
+  "dependencies": {
+    "dotdotdot": "^1.7.0",
+    "ejs": "^2.5.1",
+    "express": "^4.14.0",
+    "express-session": "^1.14.1",
+    "moment": "^2.14.1",
+    "mysql": "^2.11.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "blog_node",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://framagit.org/Jenaye/Blog.git"
+  },
+  "author": "3ngelbarte & Jenaye",
+  "license": "ISC"
+}

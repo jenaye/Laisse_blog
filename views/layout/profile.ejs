@@ -1,0 +1,139 @@
+<% include header %>
+<div class="container">
+       <section class="wrapper">
+          <div class="row">
+                <div class="col-lg-12">
+                    <h3 class="page-header"><i class="fa fa-user-md"></i> Profile</h3>
+                    <ol class="breadcrumb">
+                        <li><i class="fa fa-home"></i><a href="/">Accueil</a></li>
+                        <li><i class="fa fa-user-md"></i>Profile</li>
+                    </ol>
+                </div>
+            </div>
+              <div class="row">
+                <!-- profile-widget -->
+                <div class="col-lg-12">
+                    <div class="profile-widget profile-widget-info">
+                          <div class="panel-body">
+                            <div class="col-lg-3 col-sm-2">
+                              <h4><%= user.username %></h4>   
+                              <div class="media">                            
+                                <img class="media-object" style="width:55%" src="/assets/images/lool.png" alt="">
+                            </div>
+                                <h6>Administrateur</h6>
+                            </div>
+                            
+                            <div class="col-lg-3 col-sm-6 follow-info weather-category">
+                                <div class="panel panel-default">
+                                  <div class="panel-heading">Dernière IP connue</div>
+                                  <div class="panel-body"><%= ip %></div>
+                                </div>  
+                            </div>
+                            <div class="col-lg-6 col-sm-6 follow-info weather-category">
+                              <div class="btn-group btn-group-justified" role="group" aria-label="...">
+                                <a href="/profile/<%= user.id %>" class="btn btn-warning">
+                                  <i class="fa fa-pencil fa-2x" aria-hidden="true"></i><br>
+                                  Editez mon profil
+                                </a>
+                              <a href="/articles/new" class="btn btn-primary">
+                                  <i class="fa fa-pencil fa-2x" aria-hidden="true"></i><br>
+                                  Créer un article
+                                </a> 
+                                <a href="/profile/delete/<%= user.id %>" class="btn btn-danger">
+                                  <i class="fa fa-trash fa-2x" aria-hidden="true"></i><br>
+                                  Supprimer votre compte
+                                </a>      
+                            </div>
+                          </div>
+                          </div>
+                    </div>
+                </div>
+              </div>
+              <div class="col-lg-12">
+                <div class="col-lg-4 col-sm-4 follow-info">
+                    <h5>Petite description : </h5>
+                        <p><%= user.description %></p>
+                        <p><i class="fa fa-twitter"></i>@<%= user.twitter %></p>
+                        <h6>
+                                Website :<!--  <%= user.website %> -->
+                        </h6>
+                </div>
+              </div>
+              <!-- page start-->
+
+<% article.forEach(function(data){ %>
+<div id="table-2_wrapper" class="dataTables_wrapper no-footer">
+    <table class="table table-bordered table-striped datatable dataTable no-footer"
+           id="table-2" role="grid" aria-describedby="table-2_info">
+        <thead>
+        <tr role="row">
+
+            <th class="sorting" tabindex="0" aria-controls="table-2" rowspan="1" colspan="1"
+                style="width: 182px;" aria-label="Student Name: activate to sort column ascending">
+
+                Titre
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="table-2" rowspan="1" colspan="1"
+                style="width: 111px;" aria-label="Average Grade: activate to sort column ascending">
+
+                Date
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="table-2" rowspan="1" colspan="1"
+                style="width: 240px;" aria-label="Curriculum / Occupation: activate to sort column ascending">
+
+                Article
+            </th>
+            <th class="sorting" tabindex="0" aria-controls="table-2" rowspan="1" colspan="1"
+                style="width: 258px;" aria-label="Actions: activate to sort column ascending">
+
+                Actions
+            </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr role="row" class="odd">
+    
+            <td>
+                <%= data.title %>
+            </td>
+            <td>
+                 <%= data.created_at %>
+            </td>
+            <td>
+                  <%= data.content %>
+            </td>
+            <td><div class="dropup">
+                <div class="btn-group btn-sm">
+                <a href="/articles/<%= data.id %>" class="btn btn-info btn-sm btn-icon icon-left">
+                    <i class="entypo-pencil"></i>
+                    Voir
+                </a>
+                  <a class="btn btn-success btn-sm">Partager</a>
+                    <a aria-expanded="false" href="#" class="btn btn-success btn-sm dropdown-toggle" data-toggle="dropdown"><span class="caret"></span></a>
+                    <ul class="dropdown-menu">
+                      <li><a href="#" id="share-twitter" data-url="http://81.66.149.153:7532/articles/<%= data.id %>">Twitter</a></li>
+                      <li><a href="#" id="share-facebook" data-url="81.66.149.153:7532/articles/<%= data.id %>">Facebook</a></li>
+                      <li><a href="#" id="share-link" data-clipboard-text="81.66.149.153:7532/articles/<%= data.id %>">Copier le lien</a></li>
+                    </ul>
+                <a href="/articles/edit/<%= data.id %>" class="btn btn-warning btn-sm btn-icon icon-left">
+                    <i class="entypo-pencil"></i>
+                    Editer
+                </a>
+                <a href="/articles/delete/<%= data.id %>" class="btn btn-danger btn-sm btn-icon icon-left">
+                    <i class="entypo-cancel"></i>
+                    Supprimer
+                </a>
+                  </div></div>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+    <% }); %>
+    <div>
+        
+    </div>
+</div>
+
+
+              
+              <% include js %>

@@ -1,0 +1,28 @@
+<% include ../layout/header %>
+
+<div class="container" style="margin-top:30px;">
+<% if (auth){ %>
+<div class="alert alert-dismissible alert-warning">
+  <button type="button" class="close" data-dismiss="alert">&times;</button>
+  <p><i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+ Vous êtes sur le point de supprimer votre article <i class="fa fa-exclamation-triangle" aria-hidden="true"></i>
+</p>
+</div>
+   <div class="panel panel-info">
+        <div class="panel-heading">
+	<% data.forEach(function(data){ %>
+  <h4>Rappel : </h4>
+</div>
+  <div class="panel-body">
+  <a href="/articles/<%= data.id %>"><h5><%= data.title %></h5></a><br/>
+  <p><%= data.content %></p>
+  <% }); %>
+</div></div>
+<form method="POST" action="" enctype="application/x-www-form-urlencoded">
+<input type="submit" class="btn btn-warning" value="Suppression">
+</form>
+</div>
+<% }  %>
+<h1> really niggah ? </h1>
+</div>
+<% include ../layout/js %>

@@ -1,0 +1,40 @@
+<% include header %>
+<div class="container" style="margin-top:20px;">
+<% data.forEach(function(data){ %>
+    <span class="label label-default"><%= moment(data.created_at).format('LLLL')  %> posté par : <%= data.username %></span>
+    <div class="element text-center"></div><br/>
+    <div class="panel panel-default">
+    
+        <div class="panel-heading">
+            <%= data.title %>
+        </div>
+        <div class="panel-body">
+            <%= data.content %><br/><br/>
+        <br/><br/>
+
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+
+            <% if (auth){ %>
+       <a class="btn btn-warning" href="/articles/edit/<%= data.id %>"><i class="fa fa-pencil-square-o" aria-hidden="true"></i>Editez votre article </a>
+       <a class="btn btn-danger" href="/articles/delete/<%= data.id %>"><i class="fa fa-trash-o" aria-hidden="true"></i>Supprimez votre article </a>
+       <% } %>
+       </div>
+       <br/>
+        <div class="btn-group btn-group-justified" role="group" aria-label="...">
+            <a id="share-twitter" class="btn btn-info" data-url="http://81.66.149.153:7532/articles/<%= data.id %>">
+            <i class="fa fa-twitter-square" aria-hidden="true"></i>
+                Twitter</a>
+            <a id="share-facebook" class="btn btn-primary" data-url="81.66.149.153:7532/articles/<%= data.id %>">
+            <i class="fa fa-facebook-square" aria-hidden="true"></i>
+                Facebook</a>
+            <a id="share-link" class="btn btn-success" data-clipboard-text="81.66.149.153:7532/articles/<%= data.id %>">
+            <i class="fa fa-share-square" aria-hidden="true"></i>
+                Copier le lien</a>
+      </div>
+    </div>         
+</div>
+
+        <% }); %>
+
+    </div>
+    <% include js %>

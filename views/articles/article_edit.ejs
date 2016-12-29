@@ -1,0 +1,29 @@
+<% include ../layout/header %>
+
+<div class="container" style="margin-top:70px;">
+<form class="form-horizontal" method="POST" action="" enctype="application/x-www-form-urlencoded">
+  <fieldset>
+    <legend>Edition de l'article</legend>
+    <div class="form-group">
+      <label for="inputEmail" class="col-lg-2 control-label">Titre</label>
+      <div class="col-lg-10">
+        <input class="form-control" value="<% data.forEach(function(data){ %><%= data.title %><% }); %>" name="titre" placeholder="title" type="text">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Contenu de l'article</label>
+      <div class="col-lg-10">
+        <textarea rows="15" cols="30" class="form-control" name="contenu" type="password"><% data.forEach(function(data){ %><%= data.content %><% }); %></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputPassword" class="col-lg-2 control-label">Validation de l'article</label>
+      <div class="col-lg-10">
+        <input type="submit" class="btn btn-primary">
+      </div>
+    </div>
+    </div>
+    </div>
+  </form>
+</div>
+<% include ../layout/js %>

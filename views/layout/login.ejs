@@ -1,0 +1,32 @@
+ <% include header %>
+ <div class="inner-bg">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-8 col-sm-offset-2 text">
+                            <h1><strong>Laisse</strong> Connexion</h1>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3>connectez vous au site</h3>
+                                    <p>rentrez vos informations dans le fomulaire suivant</p>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <form role="form" action="" method="post" class="login-form" enctype="application/x-www-form-urlencoded">
+                                    <div class="form-group">
+                                        <input tabindex="1" type="text" name="username" placeholder="Nom d'utilisateur" class="form-username form-control" id="form-username">
+                                        <label class="sr-only" for="form-username" >Nom d'utilisateur</label>
+                                    </div>
+                                    <div class="form-group">
+                                        <label class="sr-only" for="form-password">Mot de passe</label>
+                                        <input tabindex="2" type="password" name="password" placeholder="Mot de passe" class="form-password form-control" id="form-password">
+                                    </div>
+                                    <button type="submit" class="btn btn-primary">Connexion</button>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                    <% include js %>
